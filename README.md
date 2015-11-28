@@ -1,19 +1,9 @@
-# list-o-matic Node.js server using mongodb
+# list-o-matic Node.js server using mongodb and React
 
 A simple list server to demonstrate a REST API that can be called from a front
 end or a third-party application. Uses Node.js and Express, with
 username/password for login, token-based authentication, and mongoose as an
-ORM for mongodb.
-
-## Dependencies
-
-- [Node.js](https://nodejs.org/)
-- [Express](http://expressjs.com/)
-- [Mongoose](http://mongoosejs.com/)
-- [mongoose-find-or-create](https://github.com/drudge/mongoose-findorcreate)
-- [body-parser](https://github.com/expressjs/body-parser)
-- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
-- [bcrypt-nodejs](https://github.com/ncb000gt/node.bcrypt.js)
+ORM for mongodb. The Front end uses React.
 
 ## Installation
 
@@ -29,24 +19,18 @@ Next, install dependencies:
 npm install
 ```
 
-## Configure front end
+## Build
 
-Link the `public` directory to one of the available front ends. For example:
+Run webpack:
 
 ```
-ln -s ../listomatic-react/public .
+webpack
 ```
-
-The available front ends are:
-
-- [listomatic-react](https://github.com/zappala/listomatic-react)
-- [listomatic-angular](https://github.com/zappala/listomatic-angular)
-- [listomatic-ember](https://github.com/zappala/listomatic-ember)
 
 ## Run the app
 
 ```
-node app.js
+node server.js
 ```
 
 This will start a server on localhost, which you can visit at http://localhost:3000/
