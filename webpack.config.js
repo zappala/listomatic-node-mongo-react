@@ -1,13 +1,22 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+
 module.exports = {
   context: __dirname + "/app",
   entry: {
     javascript: "./components/main.js",
     html: "./index.html",
+    vendor: ["jquery","react","react-router"],
   },
   output: {
-    filename: "app.js",
+    filename: "js/app.js",
     path: __dirname + "/public",
   },
+  plugins: [
+    new ExtractTextPlugin("./css/styles.css"),
+    new CommonsChunkPlugin("vendor", "./js/vendor.js", Infinity),
+  ],
+  devtool: 'source-map',
   module: {
     loaders: [
       // loader for React JSX
@@ -25,11 +34,11 @@ module.exports = {
 	loader: "file?name=[name].[ext]",
       },
       // loaders for Bootstrap CSS
-      { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-      { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
+      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader?sourceMap") },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=assets/[name].[ext]" },
+      { test: /\.(woff|woff2)$/, loader:"url?name=assets/[name].[ext]&prefix=font/&limit=5000" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?name=assets/[name].[ext]&limit=10000&mimetype=application/octet-stream" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?name=assets/[name].[ext]&limit=10000&mimetype=image/svg+xml" }
     ],
   },
 }
