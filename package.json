@@ -4,14 +4,26 @@
   "description": "listomatic node server with mongo storage",
   "main": "app.js",
   "dependencies": {
-    "express": "~4.12.4",
-    "body-parser": "~1.12.4",
-    "jsonwebtoken": "~5.0.1",
     "bcrypt": "~0.8.3",
+    "body-parser": "~1.12.4",
+    "express": "~4.12.4",
+    "history": "^1.13.1",
+    "jsonwebtoken": "~5.0.1",
     "mongoose": "~4.0.3",
-    "mongoose-findorcreate": "~0.1.2"
+    "mongoose-findorcreate": "~0.1.2",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-router": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.1.21",
+    "babel-loader": "^6.1.0",
+    "babel-preset-react": "^6.1.18",
+    "css-loader": "^0.23.0",
+    "file-loader": "^0.8.4",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
