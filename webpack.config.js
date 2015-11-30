@@ -14,9 +14,8 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin("./css/styles.css"),
-    new CommonsChunkPlugin("vendor", "./js/vendor.js", Infinity),
+    new CommonsChunkPlugin("vendor", "./js/vendor.js"),
   ],
-  devtool: 'source-map',
   module: {
     loaders: [
       // loader for React JSX
